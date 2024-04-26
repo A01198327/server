@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "5500:5500"
+    depends_on:
+      - sqlserver
+    networks:
+      - backend_network
+    volumes:
+      - uploads:/app/uploads
+
+
+  sqlserver:
+    build:
+      context: .
+      dockerfile: Dockerfile.sqlserver
+    environment:
+      SA_PASSWORD: amogus123,
+      ACCEPT_EULA: Y
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver-data:/var/opt/mssql
+    networks:
+      - backend_network
+
+volumes:
+  sqlserver-data:
+  uploads:
+
+networks:
+  backend_network:
+    driver: bridge
