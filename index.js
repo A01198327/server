@@ -2,7 +2,6 @@ const express = require("express");
 const app = express(); 
 //const database = require("./services/database");
 const path = require("path");
-const zlib = require('zlib');
 const https = require('https');
 const fs = require('fs');
 const port = 5500;
@@ -77,6 +76,11 @@ const certificate = fs.readFileSync('server.crt', 'utf8');
 const credentials = { key: privateKey, cert: certificate };
 const httpsServer = https.createServer(credentials, app);
 
-httpsServer.listen(port, () => {
-    console.log(`HTTPS Server running at port ${port}`);
+
+{/*httpServer.listen(port, () => {
+    console.log(`HTTP Server running at port ${port}`);
+});*/}
+
+const server = app.listen(port, function(){
+    console.log(`Server running at port ${port}`);
 });
