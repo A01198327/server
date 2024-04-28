@@ -13,6 +13,7 @@ services:
       - backend_network
     volumes:
       - uploads:/app/uploads
+    mem_limit: 1.5g
 
 
   sqlserver:
@@ -28,6 +29,7 @@ services:
       - sqlserver-data:/var/opt/mssql
     networks:
       - backend_network
+    mem_limit: 1.5g
 
 volumes:
   sqlserver-data:
