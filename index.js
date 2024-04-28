@@ -13,6 +13,7 @@ const loginRouter = require("./routes/loginUsuario");
 const empleadosRouter = require("./routes/getEmpleados");
 const empleadoByIdRouter = require("./routes/getEmpleadoById");
 const insertImageRotuer = require("./routes/insertImage")
+const getImagenRouter = require("./routes/getImagen");
 const cors = require('cors');
 
 
@@ -56,6 +57,7 @@ app.use("/reportesUsuario", reportesUsuarioRouter);
 app.use("/login", loginRouter);
 app.use("/getEmpleados", empleadosRouter);
 app.use("/getEmpleadoById", empleadoByIdRouter);
+app.use("/getImagenByReporteId", getImagenRouter);
 app.use("/insertImage", insertImageRotuer);
 app.use((err, req, res, next) => {
   const statusCode = err.statusCode || 500;

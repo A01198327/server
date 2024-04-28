@@ -22,4 +22,4 @@ COPY . .
 
 EXPOSE 5500
 
-CMD ["bash", "-c", "node index.js & sleep 10 && ngrok http 5500 > /dev/stdout"]
+CMD ["bash", "-c", "node index.js & sleep 5 && ngrok http 5500 > /dev/stdout"]
