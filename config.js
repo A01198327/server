@@ -1,7 +1,7 @@
 const config = {
-    user: 'sa',
+    user: 'sqlserver',
     password: 'amogus123,',
-    server: 'sqlserver', 
+    server: '34.174.13.233', 
     database: 'WhirlCheck',
     options: {
         trustServerCertificate: true 

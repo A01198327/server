@@ -3,7 +3,7 @@ const helper = require("../helper")
 const database = require("./database");
 
 async function getEmpleados(){
-    const rows = await database.query(`SELECT * FROM Empleado ORDER BY Puntos`);
+    const rows = await database.query(`SELECT TOP(7) * FROM Empleado ORDER BY Puntos DESC`);
     const data = helper.emptyOrRows(rows);
     return {
         data,

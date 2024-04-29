@@ -7,32 +7,13 @@ services:
       dockerfile: Dockerfile
     ports:
       - "5500:5500"
-    depends_on:
-      - sqlserver
     networks:
       - backend_network
     volumes:
       - uploads:/app/uploads
     mem_limit: 1.5g
 
-
-  sqlserver:
-    build:
-      context: .
-      dockerfile: Dockerfile.sqlserver
-    environment:
-      SA_PASSWORD: amogus123,
-      ACCEPT_EULA: Y
-    ports:
-      - "1433:1433"
-    volumes:
-      - sqlserver-data:/var/opt/mssql
-    networks:
-      - backend_network
-    mem_limit: 1.5g
-
 volumes:
-  sqlserver-data:
   uploads:
 
 networks:
